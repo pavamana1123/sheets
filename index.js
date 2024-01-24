@@ -21,7 +21,9 @@ const auth = new google.auth.OAuth2(client_id, client_secret, redirect_uris[0])
 auth.setCredentials(token)
 var client = google.script({version: 'v1', auth})
 
-app.post('/api', (req, res)=>{
+app.post('/', (req, res)=>{
+
+    console.log(`Received request for: ${req.body.url}`)
 
     const { url, sheets } = req.body
 
